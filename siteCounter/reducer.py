@@ -18,5 +18,9 @@ for line in sys.stdin:
     dictionary[site] = int(count)
 
 #get the list of ordered keys
+i = 1
 for key, value in sorted(dictionary.iteritems(), key=lambda (k,v): (v,k), reverse=True):
     print "%s: %s" % (key, value)
+    if(i > 10):
+    	break
+    i = i + 1

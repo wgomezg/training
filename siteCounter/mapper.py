@@ -42,6 +42,10 @@ for line in sys.stdin:
     line = line.strip()
     # transform line into dictionary
     dictionary = lineDictionary(line)
+    #take values requested
     url = dictionary['url']
-    site = extractSite(url) 
-    print '%s\t%s' % (site, 1)
+    size = dictionary['size']
+    fullreqtime = dictionary['fullreqtime']
+
+    site = extractSite(url)
+    print '%s\t%s\t%s\t%s' % (site, 1, size, fullreqtime)

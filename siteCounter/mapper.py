@@ -2,11 +2,17 @@
 
 import sys
 from urlparse import urlparse
+import ConfigParser
 
-from ConfigParser import SafeConfigParser
-
-parser = SafeConfigParser()
-parser.read('parameters.ini')
+filePath = "/tmp/parameters.ini"
+header = "parameters"
+config = ConfigParser.ConfigParser()
+config.readfp(open(filePath))
+try:
+    magnitude=config.get(header, 'magnitude')
+    pass
+except ConfigParser.NoOptionError:
+    raise Exception(filePath + " must contain an " + header + " section with an item 'magnitude'")
 
 #This algorithm is taking off 
 #http://stackoverflow.com/questions/1644362/best-way-to-parse-a-line-in-python-to-a-dictionary
@@ -72,5 +78,4 @@ def process(line, magnitude):
 for line in sys.stdin:
     # remove leading and trailing whitespace
     line = line.strip()
-    magnitude = parser.get('parameters', 'magnitude')
     process(line, magnitude)

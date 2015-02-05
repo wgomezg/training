@@ -48,4 +48,7 @@ for line in sys.stdin:
     fullreqtime = dictionary['fullreqtime']
 
     site = extractSite(url)
-    print '%s\t%s\t%s\t%s' % (site, 1, size, fullreqtime)
+    globantDom = "globant.com";
+    res = site.find(globantDom);
+    if(res == -1):
+        print '%s\t%s\t%s\t%s' % (site, 1, size, fullreqtime)

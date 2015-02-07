@@ -56,10 +56,10 @@ def process(line, magnitude):
         fullreqtime = dictionary['fullreqtime']
 
         #convert values to order of magnitude chose
-        if magnitude == 'KB':
+        if magnitude == 'B':
             magn = 1
         else:
-            if magnitude == 'MB':
+            if magnitude == 'KB':
                 magn = 1024
 
         size = int(size)/magn

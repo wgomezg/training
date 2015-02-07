@@ -4,8 +4,10 @@ from pig_util import outputSchema
 
 @outputSchema("url")
 def extractSite(url):
-    parsed_uri = urlparse(url)
-    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    domain = ""
+    if url:
+        parsed_uri = urlparse(url)
+        domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
 
 @outputSchema("size")

@@ -13,10 +13,12 @@ def extractSite(url):
 @outputSchema("size")
 def transform(value,magnitude):
     magn = 1
+    valueTrans = 0
     if (magnitude.strip()).upper()=='B':
         magn = 1
     else:
         if (magnitude.strip()).upper()=='KB':
             magn = 1024
-    value = int(value)/magn
-    return value
+    if value:
+        valueTrans = int(value)/magn
+    return valueTrans

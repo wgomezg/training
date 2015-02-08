@@ -19,6 +19,6 @@ distRes = DISTINCT sumarize;
 ordRes = order distRes by count DESC;
 limRes = LIMIT ordRes 10;
 DUMP limRes;
-
-
-
+STORE limRes INTO 'mapreduce/wilson.gomez/output_pig/out';	
+explain limRes;
+describe limRes;

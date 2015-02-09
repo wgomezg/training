@@ -4,7 +4,7 @@ import sys
 from urlparse import urlparse
 import ConfigParser
 
-filePath = "/tmp/parameters.ini"
+filePath = "parameters.ini"
 header = "parameters"
 config = ConfigParser.ConfigParser()
 config.readfp(open(filePath))

@@ -30,7 +30,7 @@ for key, value in sorted(dictionary.iteritems(), key=lambda (k,v): (v,k), revers
 	values = dictionary[key]
 	avg_size = float(value[1])/float(value[0])
 	avg_fullreqtime = float(value[2])/float(value[0])
-	print "%s: visits -> %s  avg_size -> %s  avg_fullreqtime -> %s" % (key, value[0], avg_size, avg_fullreqtime)
+	print "%s: %s, %s, %s" % (key, value[0], avg_size, avg_fullreqtime)
 	if(i > 10):
 		break
 	i = i + 1

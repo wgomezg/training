@@ -13,7 +13,7 @@ sumarize = foreach groupUrl {
         sumsize = SUM(urlFormated.size);
         count = COUNT(urlFormated);
         sumsizeTransform = udf.transform(sumsize/count,'$parameter');
-        generate FLATTEN(urlFormated.domain) as domain, count as count, sumsizeTransform as promsize, sumreqtime/count as promreqime;
+        generate FLATTEN(urlFormated.domain) as domain, count as count, sumreqtime/count as promreqime, sumsizeTransform as promsize;
 };
 distRes = DISTINCT sumarize;
 ordRes = order distRes by count DESC;
